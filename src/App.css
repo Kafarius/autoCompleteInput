@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+body {
+    background-color: rgb(34, 34, 34);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card {
+    display: block;
+    background-color: rgb(24, 24, 24);
+    min-height: 100px;
+    height: auto;
+    width: 60%;
+    margin: 50px auto;
+    border-radius: 13px;
+    
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card header h1 {
+    margin: 10px auto;
+    text-align: center;
+    color: rgb(228, 222, 145);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card form {
+    
+    min-height: 200px;
+    height: auto;
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    box-sizing: border-box;
 }
-
-.App-link {
-  color: #61dafb;
+.card form input, .card form button {
+    outline: none;
+    border: none;
+    height: 40px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 20px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card form input {
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.card form input:focus {
+    border: 2px solid rgb(52, 149, 52);
+    border-radius: 5px;
+    
+}
+.card form button {
+    cursor: pointer;
+    background-color: rgb(47, 122, 47);
+    position: fixed;
+    right: 30%;
+    top: 105px;
+}
+.card form button:hover {
+    background-color: rgb(63, 163, 63);
+}
+.list {
+    background-color: white;
+    width: 255px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.list p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    height: 30px;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(116, 121, 116);
+}
+.list p:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.list p:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom: none;
+}
+.list p:hover {
+    background-color: rgb(228, 219, 125);
 }

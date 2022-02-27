@@ -1,0 +1,110 @@
+1. function parent() {
+    let words = "Hey, i'm parent-scope variable";
+    function child() {
+      words += ' - displayed by child function!'
+      console.log(words);
+      //alert(words)
+    }
+    child();
+  }
+  parent();
+
+-----------------------------------------------------
+
+
+2. const total = (arr) => {
+    let sum = 0;
+    for (let i=0; i<arr.length; i++) {
+      sum += arr[i]
+    }
+    return sum
+  }
+  total([9, 1, 22, 0, 2])
+
+-----------------------------------------------------
+
+
+
+3. const flatting = (arr) => {
+    //const flatter = [...arr].flat(Infinity) // passing Infinity as arg in .flat() makes function working until ther's no more arrays,
+                                        //  but it's not recursive.
+    const flatter = [...arr].flat()
+    flatter.some(x => Array.isArray(x)) && flatting(flatter)
+    return flatter
+  }
+  flatting([1,2, [3,4], [[5,6,7], [8,9], 10]])
+
+-----------------------------------------------------
+
+4 & 5. const checkElements = (arr1, arr2, type) => {
+    let commonArr = [];
+    let differentArr = [];
+    arr1.map((el) => arr2.includes(el) ? commonArr = [...commonArr, el] : differentArr = [...differentArr, el] );
+    return type === 'common' ? commonArr : differentArr
+  }
+  checkElements(['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e'], 'common')
+
+-----------------------------------------------------
+
+
+6. const tupling = (arr1, arr2) => {
+    let tuplesArr = [];
+
+    const slicedArr1 = 
+      arr1.length > arr2.length
+      ? [...arr1].slice(0, arr2.length - arr1.length) 
+      : [...arr1]
+
+    const slicedArr2 = 
+      arr2.length > arr1.length
+      ? [...arr2].slice(0, arr1.length - arr2.length) 
+      : [...arr2]
+    for (let i = 0; i<slicedArr1.length; i++) {
+      tuplesArr = [...tuplesArr, [slicedArr1[i], slicedArr2[i]]];
+    }
+    return tuplesArr
+  }
+  tupling([1,2,3], [4,5,6,7])
+
+-----------------------------------------------------
+
+
+7. const pathFinder = (path, obj) => {
+    let currentObj = obj;
+    for (let i = 0; i < path.length; i++) {
+      currentObj = currentObj[path[i]]
+    }
+    typeof currentObj === 'object' ? currentObj = undefined : currentObj = currentObj
+    return currentObj
+   }
+   pathFinder(['a', 'b', 'c', 'd'], { a: { b: { c: { d: '23' } } } })
+
+-----------------------------------------------------
+
+
+8. const comparingObjects = (obj1, obj2) => {
+    const tup1 = Object.entries(obj1).sort();
+    const tup2 = Object.entries(obj2).sort();
+    console.log(JSON.stringify(tup1) === JSON.stringify(tup2));
+    return JSON.stringify(tup1) === JSON.stringify(tup2)
+  };
+  comparingObjects({ a: 'b', c: 'd' }, { c: 'd', a: 'b' });
+  // comparingObjects({ a: 'c', c: 'a' }, { c: 'd', a: 'b', q: 's' });
+
+-----------------------------------------------------
+
+
+9. const keySubtraction = (keys, obj) => {
+    const objKeys = Object.keys(obj)
+    const objCopy = {...obj}
+    for (const key of keys) {
+      for (const k of objKeys) {
+        k===key && delete objCopy[key]
+      }
+    }
+    return objCopy
+  };
+  keySubtraction(['color', 'size'], { color: 'Blue', id: '22', size: 'xl' });
+
+
+
